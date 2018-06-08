@@ -5,36 +5,57 @@
 #include <iostream>
 #include "Teste.h"
 
-int dividir(int vetor[], int esq, int dir)
+int dividir(int vetor[], int esq, int dir, int ordenacaoCrescente)
 {
 	int aux; //troca de posições
 	int cont = esq;
 
-	for (int i = esq + 1; i <= dir; i++)
+	if (ordenacaoCrescente)
 	{
-		if (vetor[i] < vetor[esq])
+		for (int i = esq + 1; i <= dir; i++)
 		{
-			cont++;
-			aux = vetor[i];
-			vetor[i] = vetor[cont];
-			vetor[cont] = aux;
+			if (vetor[i] < vetor[esq])
+			{
+				cont++;
+				aux = vetor[i];
+				vetor[i] = vetor[cont];
+				vetor[cont] = aux;
+			}
 		}
-	}
-	aux = vetor[esq];
-	vetor[esq] = vetor[cont];
-	vetor[cont] = aux;
+		aux = vetor[esq];
+		vetor[esq] = vetor[cont];
+		vetor[cont] = aux;
 
-	return cont;
+		return cont;
+	}
+	else
+	{
+		for (int i = esq + 1; i <= dir; i++)
+		{
+			if (vetor[i] > vetor[esq])
+			{
+				cont++;
+				aux = vetor[i];
+				vetor[i] = vetor[cont];
+				vetor[cont] = aux;
+			}
+		}
+		aux = vetor[esq];
+		vetor[esq] = vetor[cont];
+		vetor[cont] = aux;
+
+		return cont;
+	}
 }
 
-void fazerQuickSort(int vetor[], int esq, int dir)
+void fazerQuickSort(int vetor[], int esq, int dir, int ordenacaoCrescente)
 {
 	int pos;
 	if (esq < dir)
 	{
-		pos = dividir(vetor, esq, dir);
-		fazerQuickSort(vetor,esq, pos - 1);
-		fazerQuickSort(vetor,pos + 1, dir);
+		pos = dividir(vetor, esq, dir, ordenacaoCrescente);
+		fazerQuickSort(vetor,esq, pos - 1, ordenacaoCrescente);
+		fazerQuickSort(vetor,pos + 1, dir, ordenacaoCrescente);
 	}
 }
 

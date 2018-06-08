@@ -26,26 +26,17 @@ void exibirVetor(int vetor[], int tamanho)
 	cout << endl << endl;
 }
 
-
-void teste2()
-{
-	cout << "teste;Bubblesort;Quicksort" << endl;
-	for (int indice = 0; indice < 500; indice++)
-		cout << indice << ";" << rand() % 100 << ";" << rand() % 100 << endl;
-	system("pause");
-}
-
 long long testarAlgoritmo(int algoritmo, int vetor[], int tamanho, bool ehCrescente) {
 	//define tempo inicial antes de ordenar
 	steady_clock::time_point tempoInicial = steady_clock::now();
 	if (algoritmo == BUBBLE_SORT) {
 		fazerBubbleSort(vetor, tamanho, ehCrescente);
-		cout << "Bubblesort" << endl << endl;
+		cout << "Bubblesort;" << endl << endl;
 		exibirVetor(vetor, tamanho);
 	}
 	else if (algoritmo == QUICK_SORT) {
-		fazerQuickSort(vetor,0,tamanho-1);
-		cout << "Quicksort" << endl <<endl;
+		fazerQuickSort(vetor,0,tamanho-1, ehCrescente);
+		cout << "Quicksort;" << endl <<endl;
 		exibirVetor(vetor, tamanho);
 	}
 	//define tempo final após ordenar
