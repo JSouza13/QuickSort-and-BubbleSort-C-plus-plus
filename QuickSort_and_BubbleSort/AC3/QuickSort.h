@@ -2,36 +2,43 @@
 #ifndef QUICKSORT_H
 #define QUICKSORT_H
 
+#include <iostream>
+#include "Teste.h"
 
-
-int partition(int *a, int m, int n)
+int dividir(int vetor[], int esq, int dir)
 {
-	int i, j, pindex, pivot;
-	pindex = m;
-	pivot = a[n];
-	for (i = m; i<n; i++)
+	int aux; //troca de posições
+	int cont = esq;
+
+	for (int i = esq + 1; i <= dir; i++)
 	{
-		if (a[i] <= pivot)
+		if (vetor[i] < vetor[esq])
 		{
-			swap(a[pindex], a[i]);
-			pindex++;
+			cont++;
+			aux = vetor[i];
+			vetor[i] = vetor[cont];
+			vetor[cont] = aux;
 		}
 	}
-	swap(a[pindex], a[n]);
-	return pindex;
+	aux = vetor[esq];
+	vetor[esq] = vetor[cont];
+	vetor[cont] = aux;
+
+	return cont;
 }
-void fazerQuickSort(int *a, int m, int n)
+
+void fazerQuickSort(int vetor[], int esq, int dir)
 {
-	int index;
-	if (m >= n)
-		return;
-	else
+	int pos;
+	if (esq < dir)
 	{
-		index = partition(a, m, n);
-		fazerQuickSort(a, m, index - 1);
-		fazerQuickSort(a, index + 1, n);
+		pos = dividir(vetor, esq, dir);
+		fazerQuickSort(vetor,esq, pos - 1);
+		fazerQuickSort(vetor,pos + 1, dir);
 	}
 }
+
+
 
 
 #endif 

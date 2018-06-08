@@ -19,14 +19,23 @@
 using namespace std;
 using namespace chrono;
 
+void exibirVetor(int vetor[], int tamanho)
+{
+	for (int i = 0; i < tamanho; ++i)
+		cout << vetor[i] << " | ";
+	cout << endl << endl;
+}
+
 long long testarAlgoritmo(int algoritmo, int vetor[], int tamanho, bool ehCrescente) {
 	//define tempo inicial antes de ordenar
 	steady_clock::time_point tempoInicial = steady_clock::now();
 	if (algoritmo == BUBBLE_SORT) {
 		fazerBubbleSort(vetor, tamanho, ehCrescente);
+		exibirVetor(vetor, tamanho);
 	}
 	else if (algoritmo == QUICK_SORT) {
-		fazerQuickSort(vetor, tamanho, ehCrescente);
+		fazerQuickSort(vetor,0,tamanho-1);
+		exibirVetor(vetor, tamanho);
 	}
 	//define tempo final após ordenar
 	steady_clock::time_point tempoFinal = steady_clock::now();

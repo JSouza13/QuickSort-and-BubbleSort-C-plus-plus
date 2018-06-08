@@ -2,9 +2,6 @@
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
 
-
-
-
 void fazerBubbleSort(int vetor[], int tamanho, bool ordenacaoCrescente)
 {
 	if (ordenacaoCrescente)
@@ -21,10 +18,6 @@ void fazerBubbleSort(int vetor[], int tamanho, bool ordenacaoCrescente)
 				}
 			}
 		}
-		cout << endl << "Vetor ordenado crescentemente =" << endl << endl;
-		for (int i = 0; i <tamanho; ++i)
-			cout << vetor[i] << " | ";
-		cout << endl << endl;
 	}
 	else
 	{
@@ -40,10 +33,6 @@ void fazerBubbleSort(int vetor[], int tamanho, bool ordenacaoCrescente)
 				}
 			}
 		}
-		cout << endl << "Vetor ordenado decrescentemente =" << endl << endl;
-		for (int i = 0; i < tamanho; ++i)
-			cout << vetor[i] << " | ";
-		cout << endl << endl;
 	}
 }
 
