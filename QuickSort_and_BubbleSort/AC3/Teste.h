@@ -22,8 +22,9 @@ using namespace chrono;
 void exibirVetor(int vetor[], int tamanho)
 {
 	for (int i = 0; i < tamanho; i++)
-		cout << vetor[i] << ";";
-	cout << endl << endl;
+	{
+		cout << vetor[i] << "|";
+	}
 }
 
 long long testarAlgoritmo(int algoritmo, int vetor[], int tamanho, bool ehCrescente) {
@@ -32,12 +33,12 @@ long long testarAlgoritmo(int algoritmo, int vetor[], int tamanho, bool ehCresce
 	if (algoritmo == BUBBLE_SORT) {
 		fazerBubbleSort(vetor, tamanho, ehCrescente);
 		cout << "Bubblesort;" << endl << endl;
-		exibirVetor(vetor, tamanho);
+		//exibirVetor(vetor, tamanho);
 	}
 	else if (algoritmo == QUICK_SORT) {
-		fazerQuickSort(vetor,0,tamanho-1, ehCrescente);
+		fazerQuickSort(vetor,tamanho,0,tamanho-1);
 		cout << "Quicksort;" << endl <<endl;
-		exibirVetor(vetor, tamanho);
+		//exibirVetor(vetor, tamanho);
 	}
 	//define tempo final após ordenar
 	steady_clock::time_point tempoFinal = steady_clock::now();
