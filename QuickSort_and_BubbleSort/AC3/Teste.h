@@ -32,12 +32,12 @@ long long testarAlgoritmo(int algoritmo, int vetor[], int tamanho, bool ehCresce
 	steady_clock::time_point tempoInicial = steady_clock::now();
 	if (algoritmo == BUBBLE_SORT) {
 		fazerBubbleSort(vetor, tamanho, ehCrescente);
-		cout << "Bubblesort;" << endl << endl;
+		cout << "Bubblesort;" << endl;
 		//exibirVetor(vetor, tamanho);
 	}
 	else if (algoritmo == QUICK_SORT) {
-		fazerQuickSort(vetor,tamanho,0,tamanho-1);
-		cout << "Quicksort;" << endl <<endl;
+		fazerQuickSort(vetor, tamanho, 0, tamanho-1, ehCrescente);
+		cout << "Quicksort;" << endl;
 		//exibirVetor(vetor, tamanho);
 	}
 	//define tempo final após ordenar
